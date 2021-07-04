@@ -16,7 +16,9 @@ class CatalogController extends Controller
         $searchModel = new CatalogSearch();
         $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
-        $customTitle = Catalog::getBrandNameByAlias($searchModel->brand) . ' ' . Catalog::getModelNameByAlias($searchModel->model);
+        $brandAlias = $searchModel->brand ?? '';
+        $modelAlias = $searchModel->model ?? '';
+        $customTitle = Catalog::getBrandNameByAlias($brandAlias) . ' ' . Catalog::getModelNameByAlias($modelAlias);
 
         return $this->render('index', compact('searchModel', 'dataProvider', 'customTitle'));
     }

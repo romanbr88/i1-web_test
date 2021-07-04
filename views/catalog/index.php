@@ -5,9 +5,6 @@ use app\models\Model;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 
-$brands = Brand::find()->all();
-$models = Model::find()->all();
-
 $this->title = 'Продажа новых автомобилей ' . $customTitle . ' в Санкт-Петербурге';
 
 ?>
